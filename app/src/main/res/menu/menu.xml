@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:Auto="http://schemas.android.com/apk/res-auto" >>
+
+    <item
+        android:id="@+id/SearchPostNr"
+        Auto:showAsAction="never"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="Manual Søgning"/>
+
+    <item
+        android:id="@+id/indstillinger"
+        android:icon="@android:drawable/ic_menu_preferences"
+        Auto:showAsAction="never"
+        android:title="Indstillinger"/>
+    <item
+        android:id="@+id/afslut"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        Auto:showAsAction="never"
+        android:title="Afslut"/>
+    <item
+        android:id="@+id/opdatere"
+        Auto:showAsAction="never"
+        android:title="Opdatere"/>
+
+
+</menu>

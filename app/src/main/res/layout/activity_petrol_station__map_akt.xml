@@ -1,0 +1,135 @@
+<LinearLayout
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        tools:context="zawar.admin.auto.Tankstation_Maps_Activity" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:id="@+id/layout_detaljer">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StatOil"
+            android:id="@+id/stationNavn"
+            android:layout_gravity="left|top"
+            android:textSize="18sp"
+            android:layout_marginTop="8sp"
+            android:layout_marginLeft="8sp"
+            android:textColor="#000000"
+            android:textStyle="bold|italic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="11.55 Kr/l"
+        android:id="@+id/prisView"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:layout_marginLeft="70sp"
+        android:layout_marginTop="80sp" />
+
+    <TextView
+            android:text="95 Blyfri: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_marginLeft="8sp"
+            android:layout_marginTop="80sp" />
+
+        <TextView
+            android:text="Indbereted: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_marginLeft="8sp"
+            android:layout_marginTop="100sp"/>
+
+        <TextView
+            android:text="12-04-2017 10:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/benzinIndberetDato"
+            android:textSize="15sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginLeft="88sp"
+            android:layout_marginTop="100sp"
+            android:textStyle="normal|italic" />
+
+
+        <TextView
+            android:text="Diesel: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_marginLeft="8sp"
+            android:layout_marginTop="135sp" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11.55 Kr/l"
+            android:id="@+id/dieselprisView"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_marginLeft="70sp"
+            android:layout_marginTop="135sp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vesterbrogade 18 , københavn V"
+            android:id="@+id/addressView"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_marginLeft="8sp"
+            android:layout_marginTop="30sp" />
+
+        <TextView
+            android:text="Indbereted: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_marginLeft="8sp"
+            android:layout_marginTop="155sp"/>
+
+        <TextView
+            android:text="12-04-2017 10:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dieselIndberetDato"
+            android:textSize="15sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginLeft="88sp"
+            android:layout_marginTop="155sp"
+            android:textStyle="normal|italic" />
+
+
+    </FrameLayout>
+</LinearLayout>

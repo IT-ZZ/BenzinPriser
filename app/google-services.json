@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "790165431035",
+    "firebase_url": "https://fir-benzinpriser.firebaseio.com",
+    "project_id": "firebase-benzinpriser",
+    "storage_bucket": "firebase-benzinpriser.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790165431035:android:897f631f57d663ea",
+        "android_client_info": {
+          "package_name": "dk.zawar.benzinpriser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790165431035-dm90d3ghrrbha9lqilbtr0a4m4obq9us.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dk.zawar.benzinpriser",
+            "certificate_hash": "c493a2a15a89dc2a50c169ddad412c1cbf095494"
+          }
+        },
+        {
+          "client_id": "790165431035-47ra540s2pa89trgsu5mkj8s0uq8fs9k.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "790165431035-dccull665o26mcl4ruvuif6qenvu2pd2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ8CJpt9R6ZZvmj0R2YXBHvxj20V4-67Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

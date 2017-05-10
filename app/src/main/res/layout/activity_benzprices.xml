@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:id="@+id/logoView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo"
+        android:contentDescription="tankstation_billed" />
+
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="25dp"
+        android:id="@+id/nameView"
+        android:layout_alignTop="@+id/logoView"
+        android:layout_toEndOf="@+id/logoView"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold|italic"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:text="UNO-X"
+        android:layout_marginTop="5dp"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lautrupvang 13, Ballerup"
+        android:id="@+id/addView"
+        android:layout_alignBottom="@+id/logoView"
+        android:layout_alignStart="@+id/nameView"
+        android:layout_marginBottom="3dp"
+        android:textSize="12sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12.56"
+        android:id="@+id/priceView"
+        android:layout_alignTop="@+id/nameView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:textColor="#000000"
+        android:typeface="serif" />
+</RelativeLayout>

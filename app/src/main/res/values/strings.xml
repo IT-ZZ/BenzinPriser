@@ -1,0 +1,709 @@
+<resources>
+    <string name="app_name">BenzinPriser</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="radiusArray">
+        <item>2 Km</item>
+        <item>4 Km</item>
+        <item>6 Km</item>
+        <item>8 Km</item>
+        <item>10 Km</item>
+
+    </string-array>
+
+    <string-array name="fuelArray">
+        <item>Blyfri 95</item>
+        <item>Diesel</item>
+    </string-array>
+    <string name="title_activity_petrol_station__map_akt">Tankstationen kort</string>
+
+    <string-array name="postNumber">
+        <item>2000 Frederiksberg</item>
+        <item>2100 København Ø</item>
+        <item>2200 København N</item>
+        <item>2300 København S</item>
+        <item>2400 København NV</item>
+        <item>2450 København SV</item>
+        <item>2500 Valby</item>
+        <item>2600 Glostrup</item>
+        <item>2605 Brøndby</item>
+        <item>2610 Rødovre</item>
+        <item>2620 Albertslund</item>
+        <item>2625 Vallensbæk</item>
+        <item>2630 Taastrup</item>
+        <item>2633 Taastrup Nordsjællands Postcenter</item>
+        <item>2635 Ishøj</item>
+        <item>2640 Hedehusene</item>
+        <item>2650 Hvidovre</item>
+        <item>2660 Brøndby Strand</item>
+        <item>2665 Vallensbæk Strand</item>
+        <item>2670 Greve</item>
+        <item>2680 Solrød Strand</item>
+        <item>2690 Karlslunde</item>
+        <item>2700 Brønshøj</item>
+        <item>2720 Vanløse</item>
+        <item>2730 Herlev</item>
+        <item>2740 Skovlunde</item>
+        <item>2750 Ballerup</item>
+        <item>2760 Måløv</item>
+        <item>2765 Smørum</item>
+        <item>2770 Kastrup</item>
+        <item>2791 Dragør</item>
+        <item>2800 Kongens Lyngby</item>
+        <item>2820 Gentofte</item>
+        <item>2830 Virum</item>
+        <item>2840 Holte</item>
+        <item>2850 Nærum</item>
+        <item>2860 Søborg</item>
+        <item>2870 Dyssegård</item>
+        <item>2880 Bagsværd</item>
+        <item>2900 Hellerup</item>
+        <item>2920 Charlottenlund</item>
+        <item>2930 Klampenborg</item>
+        <item>2942 Skodsborg</item>
+        <item>2950 Vedbæk</item>
+        <item>2960 Rungsted Kyst</item>
+        <item>2970 Hørsholm</item>
+        <item>2980 Kokkedal</item>
+        <item>2990 Nivå</item>
+        <item>3000 Helsingør</item>
+        <item>3050 Humlebæk</item>
+        <item>3060 Espergærde</item>
+        <item>3070 Snekkersten</item>
+        <item>3080 Tikøb</item>
+        <item>3100 Hornbæk</item>
+        <item>3120 Dronningmølle</item>
+        <item>3140 Ålsgårde</item>
+        <item>3150 Hellebæk</item>
+        <item>3200 Helsinge</item>
+        <item>3210 Vejby</item>
+        <item>3220 Tisvildeleje</item>
+        <item>3230 Græsted</item>
+        <item>3250 Gilleleje</item>
+        <item>3300 Frederiksværk</item>
+        <item>3310 Ølsted</item>
+        <item>3320 Skævinge</item>
+        <item>3330 Gørløse</item>
+        <item>3360 Liseleje</item>
+        <item>3370 Melby</item>
+        <item>3390 Hundested</item>
+        <item>3400 Hillerød</item>
+        <item>3450 Allerød</item>
+        <item>3460 Birkerød</item>
+        <item>3480 Fredensborg</item>
+        <item>3490 Kvistgård</item>
+        <item>3500 Værløse</item>
+        <item>3520 Farum</item>
+        <item>3540 Lynge</item>
+        <item>3550 Slangerup</item>
+        <item>3600 Frederikssund</item>
+        <item>3630 Jægerspris</item>
+        <item>3650 Ølstykke</item>
+        <item>3660 Stenløse</item>
+        <item>3670 Veksø Sjælland</item>
+        <item>3700 Rønne</item>
+        <item>3720 Aakirkeby</item>
+        <item>3730 Nexø</item>
+        <item>3740 Svaneke</item>
+        <item>3751 Østermarie</item>
+        <item>3760 Gudhjem</item>
+        <item>3770 Allinge</item>
+        <item>3782 Klemensker</item>
+        <item>3790 Hasle</item>
+        <item>4000 Roskilde</item>
+        <item>4040 Jyllinge</item>
+        <item>4050 Skibby</item>
+        <item>4060 Kirke Såby</item>
+        <item>4070 Kirke Hyllinge</item>
+        <item>4100 Ringsted</item>
+        <item>4105 Ringsted Midtsjællands Postcenter</item>
+        <item>4130 Viby Sjælland</item>
+        <item>4140 Borup</item>
+        <item>4160 Herlufmagle</item>
+        <item>4171 Glumsø</item>
+        <item>4173 Fjenneslev</item>
+        <item>4174 Jystrup Midtsjælland</item>
+        <item>4180 Sorø</item>
+        <item>4190 Munke Bjergby</item>
+        <item>4200 Slagelse</item>
+        <item>4220 Korsør</item>
+        <item>4230 Skælskør</item>
+        <item>4241 Vemmelev</item>
+        <item>4242 Boeslunde</item>
+        <item>4243 Rude</item>
+        <item>4250 Fuglebjerg</item>
+        <item>4261 Dalmose</item>
+        <item>4262 Sandved</item>
+        <item>4270 Høng</item>
+        <item>4281 Gørlev</item>
+        <item>4291 Ruds Vedby</item>
+        <item>4293 Dianalund</item>
+        <item>4295 Stenlille</item>
+        <item>4296 Nyrup</item>
+        <item>4300 Holbæk</item>
+        <item>4320 Lejre</item>
+        <item>4330 Hvalsø</item>
+        <item>4340 Tølløse</item>
+        <item>4350 Ugerløse</item>
+        <item>4360 Kirke Eskilstrup</item>
+        <item>4370 Store Merløse</item>
+        <item>4390 Vipperød</item>
+        <item>4400 Kalundborg</item>
+        <item>4420 Regstrup</item>
+        <item>4440 Mørkøv</item>
+        <item>4450 Jyderup</item>
+        <item>4460 Snertinge</item>
+        <item>4470 Svebølle</item>
+        <item>4480 Store Fuglede</item>
+        <item>4490 Jerslev Sjælland</item>
+        <item>4500 Nykøbing Sjælland</item>
+        <item>4520 Svinninge</item>
+        <item>4532 Gislinge</item>
+        <item>4534 Hørve</item>
+        <item>4540 Fårevejle</item>
+        <item>4550 Asnæs</item>
+        <item>4560 Vig</item>
+        <item>4571 Grevinge</item>
+        <item>4572 Nørre Asmindrup</item>
+        <item>4573 Højby</item>
+        <item>4581 Rørvig</item>
+        <item>4583 Sjællands Odde</item>
+        <item>4591 Føllenslev</item>
+        <item>4592 Sejerø</item>
+        <item>4593 Eskebjerg</item>
+        <item>4600 Køge</item>
+        <item>4621 Gadstrup</item>
+        <item>4622 Havdrup</item>
+        <item>4623 Lille Skensved</item>
+        <item>4632 Bjæverskov</item>
+        <item>4640 Fakse</item>
+        <item>4652 Hårlev</item>
+        <item>4653 Karise</item>
+        <item>4654 Fakse Ladeplads</item>
+        <item>4660 Store Heddinge</item>
+        <item>4671 Strøby</item>
+        <item>4672 Klippinge</item>
+        <item>4673 Rødvig Stevns</item>
+        <item>4681 Herfølge</item>
+        <item>4682 Tureby</item>
+        <item>4683 Rønnede</item>
+        <item>4684 Holmegaard</item>
+        <item>4690 Haslev</item>
+        <item>4700 Næstved</item>
+        <item>4720 Præstø</item>
+        <item>4733 Tappernøje</item>
+        <item>4735 Mern</item>
+        <item>4736 Karrebæksminde</item>
+        <item>4750 Lundby</item>
+        <item>4760 Vordingborg</item>
+        <item>4771 Kalvehave</item>
+        <item>4772 Langebæk</item>
+        <item>4773 Stensved</item>
+        <item>4780 Stege</item>
+        <item>4791 Borre</item>
+        <item>4792 Askeby</item>
+        <item>4793 Bogø By</item>
+        <item>4800 Nykøbing Falster</item>
+        <item>4840 Nørre Alslev</item>
+        <item>4850 Stubbekøbing</item>
+        <item>4862 Guldborg</item>
+        <item>4863 Eskilstrup</item>
+        <item>4871 Horbelev</item>
+        <item>4872 Idestrup</item>
+        <item>4873 Væggerløse</item>
+        <item>4874 Gedser</item>
+        <item>4880 Nysted</item>
+        <item>4891 Toreby Lolland</item>
+        <item>4892 Kettinge</item>
+        <item>4894 Øster Ulslev</item>
+        <item>4895 Errindlev</item>
+        <item>4900 Nakskov</item>
+        <item>4912 Harpelunde</item>
+        <item>4913 Horslunde</item>
+        <item>4920 Søllested</item>
+        <item>4930 Maribo</item>
+        <item>4941 Bandholm</item>
+        <item>4943 Torrig Lolland</item>
+        <item>4944 Fejø</item>
+        <item>4951 Nørreballe</item>
+        <item>4952 Stokkemarke</item>
+        <item>4953 Vesterborg</item>
+        <item>4960 Holeby</item>
+        <item>4970 Rødby</item>
+        <item>4983 Dannemare</item>
+        <item>4990 Sakskøbing</item>
+        <item>5000 Odense C</item>
+        <item>5090 Odense C Fyns Postcenter</item>
+        <item>5200 Odense V</item>
+        <item>5210 Odense NV</item>
+        <item>5220 Odense SØ</item>
+        <item>5230 Odense M</item>
+        <item>5240 Odense NØ</item>
+        <item>5250 Odense SV</item>
+        <item>5260 Odense S</item>
+        <item>5270 Odense N</item>
+        <item>5290 Marslev</item>
+        <item>5300 Kerteminde</item>
+        <item>5320 Agedrup</item>
+        <item>5330 Munkebo</item>
+        <item>5350 Rynkeby</item>
+        <item>5370 Mesinge</item>
+        <item>5380 Dalby</item>
+        <item>5390 Martofte</item>
+        <item>5400 Bogense</item>
+        <item>5450 Otterup</item>
+        <item>5462 Morud</item>
+        <item>5463 Harndrup</item>
+        <item>5464 Brenderup Fyn</item>
+        <item>5466 Asperup</item>
+        <item>5471 Søndersø</item>
+        <item>5474 Veflinge</item>
+        <item>5485 Skamby</item>
+        <item>5491 Blommenslyst</item>
+        <item>5492 Vissenbjerg</item>
+        <item>5500 Middelfart</item>
+        <item>5540 Ullerslev</item>
+        <item>5550 Langeskov</item>
+        <item>5560 Aarup</item>
+        <item>5580 Nørre Aaby</item>
+        <item>5591 Gelsted</item>
+        <item>5592 Ejby</item>
+        <item>5600 Faaborg</item>
+        <item>5610 Assens</item>
+        <item>5620 Glamsbjerg</item>
+        <item>5631 Ebberup</item>
+        <item>5642 Millinge</item>
+        <item>5672 Broby</item>
+        <item>5683 Haarby</item>
+        <item>5690 Tommerup</item>
+        <item>5700 Svendborg</item>
+        <item>5750 Ringe</item>
+        <item>5762 Vester Skerning</item>
+        <item>5771 Stenstrup</item>
+        <item>5772 Kværndrup</item>
+        <item>5792 Årslev</item>
+        <item>5800 Nyborg</item>
+        <item>5853 Ørbæk</item>
+        <item>5854 Gislev</item>
+        <item>5856 Ryslinge</item>
+        <item>5863 Ferritslev Fyn</item>
+        <item>5871 Frørup</item>
+        <item>5874 Hessela</item>
+        <item>5881 Skårup </item>
+        <item>5882 Vejstru</item>
+        <item>5883 Oure</item>
+        <item>5884 Gudme</item>
+        <item>5892 Gudbjer</item>
+        <item>5900 Rudkøbi</item>
+        <item>5932 Humble</item>
+        <item>5935 Bagenko</item>
+        <item>5953 Tranekæ</item>
+        <item>5960 Marstal</item>
+        <item>5970 Ærøskøb</item>
+        <item>5985 Søby Ær</item>
+        <item>6000 Kolding</item>
+        <item>6040 Egtved</item>
+        <item>6051 Almind</item>
+        <item>6052 Viuf</item>
+        <item>6064 Jordrup</item>
+        <item>6070 Christiansfeld</item>
+        <item>6091 Bjert</item>
+        <item>6092 Sønder Stenderup</item>
+        <item>6093 Sjølund</item>
+        <item>6094 Hejls</item>
+        <item>6100 Haderslev</item>
+        <item>6200 Aabenraa</item>
+        <item>6230 Rødekro</item>
+        <item>6240 Løgumkloster</item>
+        <item>6261 Bredebro</item>
+        <item>6270 Tønder</item>
+        <item>6280 Højer</item>
+        <item>6300 Gråsten</item>
+        <item>6310 Broager</item>
+        <item>6320 Egernsund</item>
+        <item>6330 Padborg</item>
+        <item>6340 Kruså</item>
+        <item>6360 Tinglev</item>
+        <item>6372 Bylderup-Bov</item>
+        <item>6392 Bolderslev</item>
+        <item>6400 Sønderborg</item>
+        <item>6430 Nordborg</item>
+        <item>6440 Augustenborg</item>
+        <item>6470 Sydals</item>
+        <item>6500 Vojens</item>
+        <item>6510 Gram</item>
+        <item>6520 Toftlu</item>
+        <item>6534 Agersk</item>
+        <item>6535 Brande</item>
+        <item>6541 Bevtof</item>
+        <item>6560 Sommer</item>
+        <item>6580 Vamdru</item>
+        <item>6600 Vejen</item>
+        <item>6621 Gesten</item>
+        <item>6622 Bække</item>
+        <item>6623 Vorbas</item>
+        <item>6630 Røddin</item>
+        <item>6640 Lunder</item>
+        <item>6650 Brørup</item>
+        <item>6660 Lintru</item>
+        <item>6670 Holste</item>
+        <item>6682 Hovbor</item>
+        <item>6683 Føvlin</item>
+        <item>6690 Gørdin</item>
+        <item>6700 Esbjer</item>
+        <item>6705 Esbjer</item>
+        <item>6710 Esbjer</item>
+        <item>6715 Esbjer</item>
+        <item>6720 Fanø</item>
+        <item>6731 Tjæreb</item>
+        <item>6740 Brammi</item>
+        <item>6752 Glejbj</item>
+        <item>6753 Agerbæ</item>
+        <item>6760 Ribe</item>
+        <item>6771 Gredst</item>
+        <item>6780 Skærbæ</item>
+        <item>6792 Rømø</item>
+        <item>6800 Varde</item>
+        <item>6818 Årre</item>
+        <item>6823 Ansage</item>
+        <item>6830 Nørre </item>
+        <item>6840 Oksbøl</item>
+        <item>6851 Jander</item>
+        <item>6852 Billum</item>
+        <item>6853 Vejers</item>
+        <item>6854 Henne</item>
+        <item>6855 Outrup</item>
+        <item>6857 Blåvan</item>
+        <item>6862 Tistru</item>
+        <item>6870 Ølgod</item>
+        <item>6880 Tarm</item>
+        <item>6893 Hemmet</item>
+        <item>6900 Skjern</item>
+        <item>6920 Videbæ</item>
+        <item>6933 Kibæk</item>
+        <item>6940 Lem St</item>
+        <item>6950 Ringkø</item>
+        <item>6960 Hvide </item>
+        <item>6971 Spjald</item>
+        <item>6973 Ørnhøj</item>
+        <item>6980 Tim</item>
+        <item>6990 Ulfborg</item>
+        <item>7000 Fredericia</item>
+        <item>7007 Fredericia Sydjyllands Postcenter</item>
+        <item>7080 Børkop</item>
+        <item>7100 Vejle</item>
+        <item>7120 Vejle Øst</item>
+        <item>7130 Juelsminde</item>
+        <item>7140 Stouby</item>
+        <item>7150 Barrit</item>
+        <item>7160 Tørring</item>
+        <item>7171 Uldum</item>
+        <item>7173 Vonge</item>
+        <item>7182 Bredsten</item>
+        <item>7183 Randbøl</item>
+        <item>7184 Vandel</item>
+        <item>7190 Billund</item>
+        <item>7200 Grindsted</item>
+        <item>7250 Hejnsvig</item>
+        <item>7260 Sønder Omme</item>
+        <item>7270 Stakroge</item>
+        <item>7280 Sønder Felding</item>
+        <item>7300 Jelling</item>
+        <item>7321 Gadbjerg</item>
+        <item>7323 Give</item>
+        <item>7330 Brande</item>
+        <item>7361 Ejstrupholm</item>
+        <item>7362 Hampen</item>
+        <item>7400 Herning</item>
+        <item>7401 Herning Vestjyllands Postcenter</item>
+        <item>7430 Ikast</item>
+        <item>7441 Bording</item>
+        <item>7442 Engesvang</item>
+        <item>7451 Sunds</item>
+        <item>7470 Karup Jylland</item>
+        <item>7480 Vildbjerg</item>
+        <item>7490 Aulum</item>
+        <item>7500 Holstebro</item>
+        <item>7540 Haderup</item>
+        <item>7550 Sørvad</item>
+        <item>7560 Hjerm</item>
+        <item>7570 Vemb</item>
+        <item>7600 Struer</item>
+        <item>7620 Lemvig</item>
+        <item>7650 Bøvlingbjerg</item>
+        <item>7660 Bækmarksbro</item>
+        <item>7673 Harboøre</item>
+        <item>7680 Thyborøn</item>
+        <item>7700 Thisted</item>
+        <item>7730 Hanstholm</item>
+        <item>7741 Frøstrup</item>
+        <item>7742 Vesløs</item>
+        <item>7752 Snedsted</item>
+        <item>7755 Bedsted Thy</item>
+        <item>7760 Hurup Thy</item>
+        <item>7770 Vestervig</item>
+        <item>7790 Thyholm</item>
+        <item>7800 Skive</item>
+        <item>7830 Vinderup</item>
+        <item>7840 Højslev</item>
+        <item>7850 Stoholm Jylland</item>
+        <item>7860 Spøttrup</item>
+        <item>7870 Roslev</item>
+        <item>7884 Fur</item>
+        <item>7900 Nykøbing Mors</item>
+        <item>7950 Erslev</item>
+        <item>7960 Karby</item>
+        <item>7970 Redsted Mors</item>
+        <item>7980 Vils</item>
+        <item>7990 Øster Assels</item>
+        <item>8000 Århus C</item>
+        <item>8011 Århus C Østjyllands Postcenter</item>
+        <item>8200 Århus N</item>
+        <item>8210 Århus V</item>
+        <item>8220 Brabrand</item>
+        <item>8230 Åbyhøj</item>
+        <item>8240 Risskov</item>
+        <item>8245 Risskov Ø Østjyllands Postcenter</item>
+        <item>8250 Egå</item>
+        <item>8260 Viby Jylland</item>
+        <item>8270 Højbjerg</item>
+        <item>8300 Odder</item>
+        <item>8305 Samsø</item>
+        <item>8310 Tranbjerg Jylland</item>
+        <item>8320 Mårslet</item>
+        <item>8330 Beder</item>
+        <item>8340 Malling</item>
+        <item>8350 Hundslund</item>
+        <item>8355 Solbjerg</item>
+        <item>8361 Hasselager</item>
+        <item>8362 Hørning</item>
+        <item>8370 Hadsten</item>
+        <item>8380 Trige</item>
+        <item>8381 Tilst</item>
+        <item>8382 Hinnerup</item>
+        <item>8400 Ebeltoft</item>
+        <item>8410 Rønde</item>
+        <item>8420 Knebel</item>
+        <item>8444 Balle</item>
+        <item>8450 Hammel</item>
+        <item>8462 Harlev Jylland</item>
+        <item>8464 Galten</item>
+        <item>8471 Sabro</item>
+        <item>8472 Sporup</item>
+        <item>8500 Grenaa</item>
+        <item>8520 Lystrup</item>
+        <item>8530 Hjortshøj</item>
+        <item>8541 Skødstrup</item>
+        <item>8543 Hornslet</item>
+        <item>8544 Mørke</item>
+        <item>8550 Ryomgård</item>
+        <item>8560 Kolind</item>
+        <item>8570 Trustrup</item>
+        <item>8581 Nimtofte</item>
+        <item>8585 Glesborg</item>
+        <item>8586 Ørum Djurs</item>
+        <item>8592 Anholt</item>
+        <item>8600 Silkeborg</item>
+        <item>8620 Kjellerup</item>
+        <item>8632 Lemming</item>
+        <item>8641 Sorring</item>
+        <item>8643 Ans By</item>
+        <item>8653 Them</item>
+        <item>8654 Bryrup</item>
+        <item>8660 Skanderborg</item>
+        <item>8670 Låsby</item>
+        <item>8680 Ry</item>
+        <item>8700 Horsens</item>
+        <item>8721 Daugård</item>
+        <item>8722 Hedensted</item>
+        <item>8723 Løsning</item>
+        <item>8732 Hovedgård</item>
+        <item>8740 Brædstrup</item>
+        <item>8751 Gedved</item>
+        <item>8752 Østbirk</item>
+        <item>8762 Flemming</item>
+        <item>8763 Rask Mølle</item>
+        <item>8765 Klovborg</item>
+        <item>8766 Nørre Snede</item>
+        <item>8781 Stenderup</item>
+        <item>8783 Hornsyld</item>
+        <item>8800 Viborg</item>
+        <item>8830 Tjele</item>
+        <item>8831 Løgstrup</item>
+        <item>8832 Skals</item>
+        <item>8840 Rødkærsbro</item>
+        <item>8850 Bjerringbro</item>
+        <item>8860 Ulstrup</item>
+        <item>8870 Langå</item>
+        <item>8881 Thorsø</item>
+        <item>8882 Fårvang</item>
+        <item>8883 Gjern</item>
+        <item>8900 Randers</item>
+        <item>8950 Ørsted</item>
+        <item>8961 Allingåbro</item>
+        <item>8963 Auning</item>
+        <item>8970 Havndal</item>
+        <item>8981 Spentrup</item>
+        <item>8983 Gjerlev Jylland</item>
+        <item>8990 Fårup</item>
+        <item>9000 Aalborg</item>
+        <item>9020 Aalborg Nordjyllands Postcenter</item>
+        <item>9200 Aalborg SV</item>
+        <item>9210 Aalborg SØ</item>
+        <item>9220 Aalborg Øst</item>
+        <item>9230 Svenstrup Jylland</item>
+        <item>9240 Nibe</item>
+        <item>9260 Gistrup</item>
+        <item>9270 Klarup</item>
+        <item>9280 Storvorde</item>
+        <item>9293 Kongerslev</item>
+        <item>9300 Sæby</item>
+        <item>9310 Vodskov</item>
+        <item>9320 Hjallerup</item>
+        <item>9330 Dronninglund</item>
+        <item>9340 Asaa</item>
+        <item>9352 Dybvad</item>
+        <item>9362 Gandrup</item>
+        <item>9370 Hals</item>
+        <item>9380 Vestbjerg</item>
+        <item>9381 Sulsted</item>
+        <item>9382 Tylstrup</item>
+        <item>9400 Nørresundby</item>
+        <item>9430 Vadum</item>
+        <item>9440 Aabybro</item>
+        <item>9460 Brovst</item>
+        <item>9480 Løkken</item>
+        <item>9490 Pandrup</item>
+        <item>9492 Blokhus</item>
+        <item>9493 Saltum</item>
+        <item>9500 Hobro</item>
+        <item>9510 Arden</item>
+        <item>9520 Skørping</item>
+        <item>9530 Støvring</item>
+        <item>9541 Suldrup</item>
+        <item>9550 Mariager</item>
+        <item>9560 Hadsund</item>
+        <item>9574 Bælum</item>
+        <item>9575 Terndrup</item>
+        <item>9600 Aars</item>
+        <item>9610 Nørager</item>
+        <item>9620 Aalestrup</item>
+        <item>9631 Gedsted</item>
+        <item>9632 Møldrup</item>
+        <item>9640 Farsø</item>
+        <item>9670 Løgstør</item>
+        <item>9681 Ranum</item>
+        <item>9690 Fjerritslev</item>
+        <item>9700 Brønderslev</item>
+        <item>9740 Jerslev Jylland</item>
+        <item>9750 Østervrå</item>
+        <item>9760 Vrå</item>
+        <item>9800 Hjørring</item>
+        <item>9830 Tårs</item>
+        <item>9850 Hirtshals</item>
+        <item>9870 Sindal</item>
+        <item>9881 Bindslev</item>
+        <item>9900 Frederikshavn</item>
+        <item>9940 Læsø</item>
+        <item>9970 Strandby</item>
+        <item>9981 Jerup</item>
+        <item>9982 Ålbæk</item>
+        <item>9990 Skagen</item>
+
+    </string-array>
+    <string name="title_activity_navigation_draw__akt">Menu</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+</resources>

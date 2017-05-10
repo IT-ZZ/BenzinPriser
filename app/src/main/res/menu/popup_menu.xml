@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:Auto="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/drivetoStation"
+        Auto:showAsAction="never"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="Kør"/>
+
+    <item
+        android:id="@+id/details"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        Auto:showAsAction="never"
+        android:title="Detaljer"/>
+    <item
+        android:id="@+id/enterPrice"
+        android:icon="@drawable/ic_more_vert_black_48dp"
+        Auto:showAsAction="never"
+        android:title="IndberetPris"/>
+
+
+
+</menu>
