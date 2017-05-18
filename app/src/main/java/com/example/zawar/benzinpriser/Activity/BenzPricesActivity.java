@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
@@ -25,6 +26,7 @@ import java.util.GregorianCalendar;
 
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -41,8 +43,15 @@ import com.firebase.geofire.GeoQuery;
 import com.firebase.geofire.GeoQueryEventListener;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStates;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -62,13 +71,13 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
     GoogleApiClient mGoogleApiClient;
     public Location LastLocation;
     public static final int MY_PERMISSION_REQUEST_GPS_LOCATION = 1;
-    private LocationRequest mLocationRequest;
     CustomAdapter customAdapter;
     ArrayList<PetrolStation> arrayOfPetrolStation;
     PetrolStation petrolStaion;
     private static int pos;
     private GeoQuery geoQuery;
     private ProgressDialog progressDialog;
+
 
 
 
@@ -114,14 +123,6 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
     protected void onStart() {
         super.onStart();
         Log.d(TAG, "onStart: ");
-//        if(postNumber==null){
-//
-//        mGoogleApiClient.connect();}
-//        else {
-//            searchStationbyPostNumber();
-//        }
-
-
     }
 
     @Override
@@ -133,7 +134,6 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
     @Override
     protected void onPause() {
         super.onPause();
-//        Activity comes into the foreground
         if(mGoogleApiClient.isConnected()){
             mGoogleApiClient.disconnect();
         }
@@ -201,13 +201,20 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
     }
 
     private void getStationDetail (String key){
-        mDatabase.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
+        String Keys = key;
+
+        mDatabase.child(key).addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 petrolStaion = dataSnapshot.getValue(PetrolStation.class);
                 customAdapter.setFuelType(fuelType);
                 customAdapter.add(petrolStaion);
                 customAdapter.notifyDataSetChanged();
+
+
+
             }
 
             @Override
@@ -217,18 +224,20 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
         });
 
 
-//        Data Source
         arrayOfPetrolStation = new ArrayList<>();
 
-        // Create the adapter to convert the array to views
         customAdapter = new CustomAdapter(this,arrayOfPetrolStation);
         ListView listView = new ListView(this);
         listView.setAdapter(customAdapter);
         listView.setOnItemClickListener(this);
         setContentView(listView);
 
+        Log.d(TAG, "Keys :" + Keys);
+
+
 
     }
+
 
     private void searchStationbyPostNumber() {
 
@@ -392,8 +401,6 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
 
     }
 
-    protected void startLocationUpdates() {
-    }
 
 
     //List item click
@@ -447,27 +454,6 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
                 return true;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             case R.id.enterPrice:
 
 
@@ -489,15 +475,12 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
                 builder.setIcon(arrayOfPetrolStation.get(pos).getLogo(arrayOfPetrolStation.get(pos).getName()));
 
 
-// Set up the input
                 final EditText input = new EditText(this);
-// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
 
                 input.setInputType(InputType.TYPE_CLASS_NUMBER| InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 
                 builder.setView(input);
 
-// Set up the buttons
                 AlertDialog.Builder ok = builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

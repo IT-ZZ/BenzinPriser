@@ -19,11 +19,4 @@ public class Fuel {
         this.time = time;
     }
 
-//    public void setPrice(String price) {
-//        this.price = price;
-//    }
-//
-//    public void setTime(String time) {
-//        this.time = time;
-//    }
 }

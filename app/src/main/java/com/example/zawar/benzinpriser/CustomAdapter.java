@@ -1,6 +1,7 @@
 package com.example.zawar.benzinpriser;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ public class CustomAdapter extends ArrayAdapter <PetrolStation> {
 
 
     private String fuelType;
+    public static String TAG;
 
     public CustomAdapter(Context context, ArrayList<PetrolStation> users) {
         super(context,0, users);
