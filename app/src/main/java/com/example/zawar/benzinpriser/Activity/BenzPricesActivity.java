@@ -229,9 +229,6 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
         listView.setOnItemClickListener(this);
         setContentView(listView);
 
-        Log.d(TAG, "Keys :" + Keys);
-
-
 
     }
 
