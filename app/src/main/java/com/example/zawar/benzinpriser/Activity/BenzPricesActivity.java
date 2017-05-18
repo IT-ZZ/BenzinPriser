@@ -201,9 +201,8 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
     }
 
     private void getStationDetail (String key){
-        String Keys = key;
 
-        mDatabase.child(key).addValueEventListener(new ValueEventListener() {
+        mDatabase.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -212,8 +211,6 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
                 customAdapter.setFuelType(fuelType);
                 customAdapter.add(petrolStaion);
                 customAdapter.notifyDataSetChanged();
-
-
 
             }
 
