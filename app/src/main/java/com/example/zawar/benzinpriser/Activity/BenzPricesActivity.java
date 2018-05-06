@@ -103,6 +103,7 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
 
         Log.d(TAG, fuelType);
         //***************************//
+        //**************************//
 
         geoFire = new GeoFire(mGeoFire);
         Log.d(TAG, mDatabase.toString());
