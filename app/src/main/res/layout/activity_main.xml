@@ -60,5 +60,14 @@
         android:layout_alignStart="@+id/RadiusView"
         android:layout_marginTop="45dp" />
 
+    <TextView
+        android:text="Vælge Radius og brændstof typen for at finde priser på de nærmeste tankstationer "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_blue_bright" />
+
 
 </RelativeLayout>

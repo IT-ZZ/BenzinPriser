@@ -46,6 +46,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
@@ -60,10 +61,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class BenzPricesActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, AdapterView.OnItemClickListener, PopupMenu.OnMenuItemClickListener {
+
+
+public class BenzPricesActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, AdapterView.OnItemClickListener, PopupMenu.OnMenuItemClickListener, LocationListener {
 
     private String fuelType, setFuelTypeDB, postNumber;
-    private String stName,stPrice,stAdd,stKey;
+    private String stName, stPrice, stAdd, stKey;
     private int radius;
     private final String TAG = "TAG";
     private DatabaseReference mDatabase, mGeoFire;
@@ -77,41 +80,36 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
     private static int pos;
     private GeoQuery geoQuery;
     private ProgressDialog progressDialog;
-
-
+    LocationRequest mLocationRequest;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
                 .build();
-
-
-        radius = getIntent().getIntExtra("Radius",4);
+        createLocationRequest();
+        radius = getIntent().getIntExtra("Radius", 4);
         fuelType = getIntent().getStringExtra("fuelType");
         postNumber = getIntent().getStringExtra("postNr");
-        if(fuelType.startsWith("D")) {
-            setFuelTypeDB ="diesel";
-        }
-        else {
-            setFuelTypeDB="blyfri";
+        if (fuelType.startsWith("D")) {
+            setFuelTypeDB = "diesel";
+        } else {
+            setFuelTypeDB = "blyfri";
         }
 
         Log.d(TAG, fuelType);
-        mDatabase = FirebaseDatabase.getInstance().getReference("stationDetail");
-        mGeoFire = FirebaseDatabase.getInstance().getReference("locationKey");
+        //***************************//
+
         geoFire = new GeoFire(mGeoFire);
         Log.d(TAG, mDatabase.toString());
 
         petrolStaion = new PetrolStation();
 
-        if(postNumber==null)
+        if (postNumber == null)
             mGoogleApiClient.connect();
         else
             searchStationbyPostNumber();
@@ -134,7 +132,7 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
     @Override
     protected void onPause() {
         super.onPause();
-        if(mGoogleApiClient.isConnected()){
+        if (mGoogleApiClient.isConnected()) {
             mGoogleApiClient.disconnect();
         }
     }
@@ -150,8 +148,7 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
     }
 
 
-
-    private void getPetroStationsKeys(Location location){
+    private void getPetroStationsKeys(Location location) {
         progressDialog = new ProgressDialog(this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setIndeterminate(false);
@@ -159,7 +156,7 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
         progressDialog.setMessage("Loading");
         progressDialog.show();
 
-        GeoLocation geoLocation = new GeoLocation(location.getLatitude(),location.getLongitude());
+        GeoLocation geoLocation = new GeoLocation(location.getLatitude(), location.getLongitude());
         geoQuery = geoFire.queryAtLocation(geoLocation, radius);
 
         geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
@@ -181,7 +178,7 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
             @Override
             public void onGeoQueryReady() {
 
-                if(progressDialog != null){
+                if (progressDialog != null) {
                     progressDialog.dismiss();
                     progressDialog = null;
                 }
@@ -190,17 +187,16 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
 
             @Override
             public void onGeoQueryError(DatabaseError error) {
-                Toast.makeText(BenzPricesActivity.this,"Feji i forbindelse,Prøve igen senere", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BenzPricesActivity.this, "Feji i forbindelse,Prøve igen senere", Toast.LENGTH_SHORT).show();
                 finish();
 
             }
         });
 
 
-
     }
 
-    private void getStationDetail (String key){
+    private void getStationDetail(String key) {
 
         mDatabase.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -223,7 +219,7 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
 
         arrayOfPetrolStation = new ArrayList<>();
 
-        customAdapter = new CustomAdapter(this,arrayOfPetrolStation);
+        customAdapter = new CustomAdapter(this, arrayOfPetrolStation);
         ListView listView = new ListView(this);
         listView.setAdapter(customAdapter);
         listView.setOnItemClickListener(this);
@@ -232,6 +228,28 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
 
     }
 
+    protected void createLocationRequest() {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(10000);
+        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+                .addLocationRequest(mLocationRequest);
+    }
+
+    protected void startLocationUpdates() {
+
+
+
+            LocationServices.FusedLocationApi.requestLocationUpdates(
+                    mGoogleApiClient, mLocationRequest, this);
+        }
+
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
 
     private void searchStationbyPostNumber() {
 
@@ -300,6 +318,7 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
 
             if (LastLocation == null) {
                 //startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                startLocationUpdates();
                 Toast.makeText(this, "App kunne ikke finde din placering", Toast.LENGTH_SHORT).show();
                 finish();
             }
@@ -549,19 +568,6 @@ public class BenzPricesActivity extends AppCompatActivity implements GoogleApiCl
 
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
